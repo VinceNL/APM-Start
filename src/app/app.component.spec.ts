@@ -19,13 +19,13 @@ describe('AppComponent', () => {
   it(`should have as title 'Angular: Getting Started'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Angular: Getting Started');
+    expect(app.pageTitle).toEqual('Acme Product Management');
   });
 
-  it('should render title', () => {
+  it('should have home link', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to Angular: Getting Started!!');
+    expect(compiled.querySelector('li').textContent).toContain('Home');
   });
 });

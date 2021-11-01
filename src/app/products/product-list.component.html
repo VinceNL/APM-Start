@@ -11,7 +11,7 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <h4>{{listFilter}} by:</h4>
+        <h4>{{ listFilter }} by:</h4>
       </div>
     </div>
     <div class="table-responsive">
@@ -39,12 +39,24 @@
                 [style.margin.px]="imageMargin"
               />
             </td>
-            <td>{{ product.productName }}</td>
-            <td>{{ product.productCode | lowercase | convertToSpaces:'-' }}</td>
+            <td>
+              <a [routerLink]="['/products', product.productId]">{{
+                product.productName
+              }}</a>
+            </td>
+            <td>
+              {{ product.productCode | lowercase | convertToSpaces: "-" }}
+            </td>
             <td>{{ product.releaseDate }}</td>
-            <td>{{ product.price | currency : 'EUR' : 'symbol' : '1.2-2' | lowercase }}</td>
-            <td><pm-star [rating]="product.starRating"
-              (ratingClicked)="onRatingClicked($event)"></pm-star></td>
+            <td>
+              {{ product.price | currency: "EUR":"symbol":"1.2-2" | lowercase }}
+            </td>
+            <td>
+              <pm-star
+                [rating]="product.starRating"
+                (ratingClicked)="onRatingClicked($event)"
+              ></pm-star>
+            </td>
           </tr>
         </thead>
         <tbody></tbody>
